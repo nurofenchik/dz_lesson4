@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
-def index(request):
-    return HttpResponse('Успешно')
-def app_lesson_4(request):
-    return HttpResponse('Домашка по 4 занятию')
 
+def index(request):
+    return render(request, 'index.html')
+def HUY(request):
+    return HttpResponse('Успешно')
