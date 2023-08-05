@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import HUY
+from .views import hehe
 from .views import index
-urlpatterns = [path('1', HUY),
+urlpatterns = [path('1', hehe),
                path('',index)
                ]
 
