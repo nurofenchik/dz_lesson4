@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+<!-- nasledovali shablon -->
+{% block title %} TEST {% endblock %}
+{% load static %}
+<!-- подключение папки статики с картинками -->
+
+{% block content %}
+<h1> ETO TEST PAGE 1 </h1>
+<img src="{%static 'img/adv.png' %}">
+<a href = '{%url 'test2' %}'> ссылка на вторую страницу </a>  <!-- если переносить на другой домен то поможет не менять ссылки постоянно ('{%url 'test2' %}) -->
+{% endblock %}

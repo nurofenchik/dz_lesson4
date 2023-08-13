@@ -6,3 +6,8 @@ def index(request):
     return render(request, 'index.html')
 def hehe(request):
     return HttpResponse('Успешно')
+
+def test(request):
+    return render(request, 'test.html')
+def test2(request):
+    return render(request, 'test2.html')
