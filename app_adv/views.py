@@ -1,9 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
+from .models import Advertisement # импортировал модель обьявления
 
+
+# функция представление
 def index(request):
-    return render(request, 'index.html')
+    advertisiments =  Advertisement.objects.all() # все записи
+    context = {'advertisiments': advertisiments}
+    return render(request, "index.html", context)
+#def index(request):
+#   return render(request, 'index.html')
 def base(request):
     return render(request, 'base.html')
 def advertisement(request):

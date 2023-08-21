@@ -97,6 +97,46 @@
       </div>
     </form>
   </div>
+
+<!-- block obiavlenii --!>
+  {% for adv in advertisiments%}
+    <div class="card mb-2" style="max-width: 1200px; margin-top: 20px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <a href="advertisement.html" class="nav-link">
+          {% if adv.image %}
+            <img src="{{adv.image.url}}" class="img-fluid rounded-start" alt="Card title">
+          {% else %}
+            <img src="{% static 'img/adv.png' %}" class="img-fluid rounded-start" alt="Card title">
+          {% endif %}
+
+          </a>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="advertisement.html" class="nav-link"><strong>{{adv.title}}</strong></a>
+            </h5>
+            <a href="advertisement.html" class="nav-link">
+              <p class="card-text">
+                {{adv.description}}
+              </p>
+              <span>Автор: {{adv.user}}</span>
+              <p class="card-text"><small class="text-muted">{{adv.created_at}}</small></p>
+              <span>Цена: {{adv.price}}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+
+
+
+
+
+
   <div class="col">
     <div class="card mb-2" style="max-width: 1200px; margin-top: 20px;">
       <div class="row g-0">
