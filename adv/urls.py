@@ -22,6 +22,7 @@ from django.conf.urls.static import static #func dlya sozdania avto ssilok dlya 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app_adv.urls')),
+    path('myauth/' , include('app_auth.urls'))
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL ,document_root = settings.MEDIA_ROOT)
