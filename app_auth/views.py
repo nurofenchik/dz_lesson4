@@ -29,22 +29,23 @@ def logout_view(request):
     return redirect(reverse('login'))
 
 
+
 def register(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            if request.user.is_authenticated:
-                form.save()
-                username = request.POST.get('username')
-                password = request.POST.get('password')
-                first_name = request.POST.get('first_name')
-                last_name = request.POST.get('last_name')
-                user = authenticate(request, username=username, password=password , first_name = first_name , last_name = last_name)
-                login(request , user)
-                return redirect('index')
+            user = form.save()
+            user = authenticate(username=user.username, password=request.POST['password1'])
+            login(request, user=user)
+            return redirect(reverse('profile'))
     else:
         form = CustomUserCreationForm()
-    return render(request, 'app_auth/register.html', {'form': form})
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'app_auth/register.html', context)
 
 
 
